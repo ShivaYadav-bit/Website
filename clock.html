@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Clock</title>
+</head>
+<style>
+    body{
+        background-color: black;
+        color: white;
+        text-align: center;
+        font-size: 32px;
+        font-family: 'Courier New', Courier, monospace;
+        margin-top: 200px;
+    }
+    #clock{
+        color: white;
+    }
+</style>
+<body>
+    <div id="clock">00:00:00</div>
+
+    <script>
+        const clockElement = document.getElementById("clock");
+
+function updateTime() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+    const formattedHours = hours.toString().padStart(2, '0');
+    const formattedMinutes = minutes.toString().padStart(2, '0');
+    const formattedSeconds = seconds.toString().padStart(2, '0');
+    const timeString = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+    clockElement.innerText = timeString;
+}
+updateTime();
+setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>
